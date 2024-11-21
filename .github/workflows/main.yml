@@ -20,10 +20,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build API Docker image
-        run: docker build -t ghcr.io/lyttledevelopment/kleine-stapjes-grote-droom:main .
+        run: docker build -t ghcr.io/lyttledevelopment/mirror:main .
 
       - name: Push API Docker image to GitHub Container Registry
-        run: docker push ghcr.io/lyttledevelopment/kleine-stapjes-grote-droom:main
+        run: docker push ghcr.io/lyttledevelopment/mirror:main
 
       - name: Deploy Image to CapRover
         uses: caprover/deploy-from-github@v1.1.2
@@ -31,4 +31,4 @@ jobs:
           server: "${{ secrets.CAPROVER_SERVER }}"
           app: "${{ secrets.CAPROVER_APP_NAME }}"
           token: "${{ secrets.CAPROVER_APP_TOKEN }}"
-          image: "ghcr.io/lyttledevelopment/kleine-stapjes-grote-droom:main"
+          image: "ghcr.io/lyttledevelopment/mirror:main"
